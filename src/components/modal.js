@@ -10,18 +10,19 @@ const Modal = (props) => {
       <div className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <div className="card lg:card-side bg-base-100">
-            <figure>
-              <img
+            
+            <div className="card-body">
+              <h2 className="card-title">{tool_name ? tool_name: "Not Found"}</h2>
+              <p>{description ? description: "Not Found"}.</p>
+              <p> Visit Our Website <a href={website ? website: "Not Found"}><strong>Click here</strong></a></p>
+              
+            </div>
+            <figure className="w-full h-64">
+              <img 
                 src={image_link && image_link[0]}
                 alt="Album"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title">{tool_name}</h2>
-              <p>{description}.</p>
-              <p> Visit Our <strong>Website</strong> {website}</p>
-              
-            </div>
           </div>
           <div className="modal-action">
             <label htmlFor="my-modal-5" className="btn">
