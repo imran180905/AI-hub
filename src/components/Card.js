@@ -8,6 +8,14 @@ const Card = () => {
   const [showAll, setShowAll] = useState(false);
   const [uniqueId, setUniqueId] = useState(null);
   const [singlyData, setSinglyData] = useState({});
+
+  const handleDate = ()=>{
+    const sortData = data.sort((a,b)=>{
+      return new Date(a.published_in) - new Date(b.published_in);
+    });
+    setData([...data,sortData]);
+
+  }
   
 
   const handleShowAll = () => {
@@ -30,10 +38,13 @@ const Card = () => {
     };
     loadData();
   }, []);
-//   console.log(singlyData);
+  console.log(data.published_in);
 
   return (
     <>
+    <span onClick={handleDate}>
+    <Button>Sort by Date</Button>
+    </span>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-12 my-6">
         {data.slice(0, showAll ? 12 : 6).map((singleData) => {
           return (

@@ -15,7 +15,7 @@ const SingleData = (props) => {
             {
                 features.map((features,index)=>{
                    return <p>
-                        {index+1} . {features}
+                        {index+1} . {features ? features: "Not found"}
                     </p>
                 })
             }
@@ -29,7 +29,7 @@ const SingleData = (props) => {
 </svg>
 
             </span>
-            <p> {published_in}</p>
+            <p> {published_in ? published_in: "Not Found"}</p>
           </div>
           <div>
             <label onClick={()=> props.setUniqueId(id)}  htmlFor="my-modal-5" className="cursor-pointer">
